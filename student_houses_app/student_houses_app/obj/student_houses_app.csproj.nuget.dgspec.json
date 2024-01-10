@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikym\\Documents\\GitHub\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj": {}
+    "C:\\Users\\saoud\\OneDrive\\Desktop\\Fontys-workspace\\projects\\1-student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikym\\Documents\\GitHub\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj": {
+    "C:\\Users\\saoud\\OneDrive\\Desktop\\Fontys-workspace\\projects\\1-student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikym\\Documents\\GitHub\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj",
+        "projectUniqueName": "C:\\Users\\saoud\\OneDrive\\Desktop\\Fontys-workspace\\projects\\1-student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj",
         "projectName": "student_houses_app",
-        "projectPath": "C:\\Users\\nikym\\Documents\\GitHub\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj",
-        "packagesPath": "C:\\Users\\nikym\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikym\\Documents\\GitHub\\student_houses_app\\student_houses_app\\student_houses_app\\obj\\",
+        "projectPath": "C:\\Users\\saoud\\OneDrive\\Desktop\\Fontys-workspace\\projects\\1-student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app.csproj",
+        "packagesPath": "C:\\Users\\saoud\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\saoud\\OneDrive\\Desktop\\Fontys-workspace\\projects\\1-student_houses_app\\student_houses_app\\student_houses_app\\student_houses_app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nikym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\saoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,16 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Bunifu.UI.WinForms": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,24 +60,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -76,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

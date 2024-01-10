@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +9,28 @@ namespace student_houses_app.models
 {
     public class StudentManager
     {
-        public List<Student> students = new List<Student>;
+        private Dictionary<string, Student> studentsDict;
 
-        public void addStudent (Student student)
+        public Dictionary<string, Student> StudentsDict
         {
-            int verify = 1;
-
-                foreach (Student s in this.students)
-                    if (s == student) verify = 0;
-
-            if (verify == 1) this.students.Add(student);
-            else MessageBox.Show("Already added this student");
-
+            get { return studentsDict; }
         }
 
+        public StudentManager()
+        {
+            studentsDict = new Dictionary<string, Student>();
+        }
+
+        public Student AddStudent(string name, string email)
+        {
+            if (studentsDict.ContainsKey(name))
+            {
+                throw new Exception("A student with the same name already exists.");
+            }
+
+            Student student = new Student(name, email);
+            studentsDict.Add(name, student);
+            return student;
+        }
     }
 }
