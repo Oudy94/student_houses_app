@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace student_houses_app
 {
-    public partial class Form2 : Form
+    public partial class CompleteTaskDialog : Form
     {
-        public Form2()
+        public CompleteTaskDialog()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

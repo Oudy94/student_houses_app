@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,29 +14,23 @@ namespace student_houses_app
 {
     public partial class Main : Form
     {
-        public StudentManager StudentManager { get; }
-        public TaskManager TaskManager { get; }
-        public AgreementManager AgreementManager { get; }
-        public ComplaintManager ComplaintManager { get; }
+        public ManagerContainer MC { get; set; }
 
         public Main()
         {
             InitializeComponent();
 
-            this.StudentManager = new StudentManager();
-            this.TaskManager = new TaskManager();
-            this.AgreementManager = new AgreementManager();
-            this.ComplaintManager = new ComplaintManager();
+            this.MC = new ManagerContainer();
 
             //For test
-            this.StudentManager.AddStudent("Saoud", "saoud@gmail.com");
-            this.StudentManager.AddStudent("Catalin", "saoud@gmail.com");
-            this.StudentManager.AddStudent("Nikolay", "saoud@gmail.com");
-            this.StudentManager.AddStudent("John", "saoud@gmail.com");
-            this.StudentManager.AddStudent("Doe", "saoud@gmail.com");
-            this.TaskManager.AddTaskInformation("Cleaning", "", new List<DayOfWeek> { DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday });
-            this.TaskManager.AddTaskInformation("Grocery", "", new List<DayOfWeek> { DayOfWeek.Monday, DayOfWeek.Thursday, DayOfWeek.Saturday });
-            this.TaskManager.AddTaskInformation("Garbage", "", new List<DayOfWeek> { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+            this.MC.StudentManager.AddStudent("Saoud", "saoud@gmail.com");
+            this.MC.StudentManager.AddStudent("Catalin", "Catalin@gmail.com");
+            this.MC.StudentManager.AddStudent("Nikolay", "Nikolay@gmail.com");
+            this.MC.StudentManager.AddStudent("John", "John@gmail.com");
+            this.MC.StudentManager.AddStudent("Doe", "Doe@gmail.com");
+            this.MC.TaskManager.AddTaskInformation("Cleaning", "", new List<DayOfWeek> { DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday });
+            this.MC.TaskManager.AddTaskInformation("Grocery", "", new List<DayOfWeek> { DayOfWeek.Monday, DayOfWeek.Thursday, DayOfWeek.Saturday });
+            this.MC.TaskManager.AddTaskInformation("Garbage", "", new List<DayOfWeek> { DayOfWeek.Tuesday, DayOfWeek.Sunday });
 
             MainUser mainUser = new MainUser(this);
             pnlMain.Controls.Add(mainUser);

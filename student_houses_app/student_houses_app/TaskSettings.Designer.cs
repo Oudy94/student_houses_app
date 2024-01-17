@@ -90,7 +90,6 @@
             lstTaskDays.SelectionMode = SelectionMode.None;
             lstTaskDays.Size = new Size(168, 123);
             lstTaskDays.TabIndex = 2;
-            lstTaskDays.SelectedIndexChanged += lstTaskDays_SelectedIndexChanged;
             // 
             // groupBox1
             // 

@@ -17,8 +17,10 @@ namespace student_houses_app
         {
             InitializeComponent();
 
-            txtStudentA.Text = agreement.StudentA.Name;
-            txtStudentB.Text = agreement.StudentB.Name;
+            foreach (Student student in agreement.Students)
+            {
+                lstStudents.Items.Add(student);
+            }
             txtAgreement.Text = agreement.AgreementDesc;
             lblCreatedDate.Text = agreement.CreatedDate.ToString("dd/MM/yyyy");
         }

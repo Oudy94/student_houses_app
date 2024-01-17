@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace student_houses_app.Models
 {
+    [Serializable]
     public class TaskInformation
     {
         public string Name { get; set; }
@@ -17,6 +18,11 @@ namespace student_houses_app.Models
             this.Name = name;
             this.Description = description;
             this.Days = days;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Name}";
         }
     }
 }

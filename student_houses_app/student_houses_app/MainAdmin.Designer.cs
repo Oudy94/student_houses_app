@@ -29,30 +29,48 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnSetTasks = new Button();
             btnUpdate = new Button();
             btnLogout = new Button();
             pnlMenu = new Panel();
             btnTaskSettings = new Button();
             btnStudentSettings = new Button();
-            btnEventRequestsList = new Button();
+            btnTasksList = new Button();
             btnComplaintsList = new Button();
             btnAgreements = new Button();
             btnTasksSchedule = new Button();
             pnlLogo = new Panel();
             pnlMainAdmin = new Panel();
+            btnImportExport = new Button();
             panel1.SuspendLayout();
             pnlMenu.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnSetTasks);
             panel1.Controls.Add(btnUpdate);
             panel1.Controls.Add(btnLogout);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(220, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(775, 54);
+            panel1.Size = new Size(754, 80);
             panel1.TabIndex = 7;
+            // 
+            // btnSetTasks
+            // 
+            btnSetTasks.BackColor = Color.FromArgb(51, 51, 76);
+            btnSetTasks.Cursor = Cursors.Hand;
+            btnSetTasks.FlatAppearance.BorderSize = 0;
+            btnSetTasks.FlatStyle = FlatStyle.Flat;
+            btnSetTasks.ForeColor = Color.White;
+            btnSetTasks.Location = new Point(502, 3);
+            btnSetTasks.Name = "btnSetTasks";
+            btnSetTasks.Size = new Size(78, 35);
+            btnSetTasks.TabIndex = 8;
+            btnSetTasks.Text = "Set tasks";
+            btnSetTasks.UseVisualStyleBackColor = false;
+            btnSetTasks.Click += btnSetTasks_Click;
             // 
             // btnUpdate
             // 
@@ -61,7 +79,7 @@
             btnUpdate.FlatAppearance.BorderSize = 0;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(610, 3);
+            btnUpdate.Location = new Point(586, 3);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(78, 35);
             btnUpdate.TabIndex = 7;
@@ -76,7 +94,7 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(694, 3);
+            btnLogout.Location = new Point(670, 3);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(78, 35);
             btnLogout.TabIndex = 6;
@@ -87,9 +105,10 @@
             // pnlMenu
             // 
             pnlMenu.BackColor = Color.FromArgb(51, 51, 76);
+            pnlMenu.Controls.Add(btnImportExport);
             pnlMenu.Controls.Add(btnTaskSettings);
             pnlMenu.Controls.Add(btnStudentSettings);
-            pnlMenu.Controls.Add(btnEventRequestsList);
+            pnlMenu.Controls.Add(btnTasksList);
             pnlMenu.Controls.Add(btnComplaintsList);
             pnlMenu.Controls.Add(btnAgreements);
             pnlMenu.Controls.Add(btnTasksSchedule);
@@ -138,23 +157,24 @@
             btnStudentSettings.UseVisualStyleBackColor = true;
             btnStudentSettings.Click += btnStudentSettings_Click;
             // 
-            // btnEventRequestsList
+            // btnTasksList
             // 
-            btnEventRequestsList.Dock = DockStyle.Top;
-            btnEventRequestsList.FlatAppearance.BorderSize = 0;
-            btnEventRequestsList.FlatStyle = FlatStyle.Flat;
-            btnEventRequestsList.ForeColor = Color.Gainsboro;
-            btnEventRequestsList.Image = Properties.Resources._event;
-            btnEventRequestsList.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEventRequestsList.Location = new Point(0, 260);
-            btnEventRequestsList.Name = "btnEventRequestsList";
-            btnEventRequestsList.Padding = new Padding(12, 0, 0, 0);
-            btnEventRequestsList.Size = new Size(220, 60);
-            btnEventRequestsList.TabIndex = 3;
-            btnEventRequestsList.Text = " Event requests list";
-            btnEventRequestsList.TextAlign = ContentAlignment.MiddleLeft;
-            btnEventRequestsList.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEventRequestsList.UseVisualStyleBackColor = true;
+            btnTasksList.Dock = DockStyle.Top;
+            btnTasksList.FlatAppearance.BorderSize = 0;
+            btnTasksList.FlatStyle = FlatStyle.Flat;
+            btnTasksList.ForeColor = Color.Gainsboro;
+            btnTasksList.Image = Properties.Resources.tasks_list;
+            btnTasksList.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTasksList.Location = new Point(0, 260);
+            btnTasksList.Name = "btnTasksList";
+            btnTasksList.Padding = new Padding(12, 0, 0, 0);
+            btnTasksList.Size = new Size(220, 60);
+            btnTasksList.TabIndex = 3;
+            btnTasksList.Text = " Tasks list";
+            btnTasksList.TextAlign = ContentAlignment.MiddleLeft;
+            btnTasksList.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTasksList.UseVisualStyleBackColor = true;
+            btnTasksList.Click += btnTasksList_Click;
             // 
             // btnComplaintsList
             // 
@@ -226,10 +246,29 @@
             // pnlMainAdmin
             // 
             pnlMainAdmin.Dock = DockStyle.Fill;
-            pnlMainAdmin.Location = new Point(220, 54);
+            pnlMainAdmin.Location = new Point(220, 80);
             pnlMainAdmin.Name = "pnlMainAdmin";
-            pnlMainAdmin.Size = new Size(775, 491);
+            pnlMainAdmin.Size = new Size(754, 465);
             pnlMainAdmin.TabIndex = 8;
+            // 
+            // btnImportExport
+            // 
+            btnImportExport.Dock = DockStyle.Top;
+            btnImportExport.FlatAppearance.BorderSize = 0;
+            btnImportExport.FlatStyle = FlatStyle.Flat;
+            btnImportExport.ForeColor = Color.Gainsboro;
+            btnImportExport.Image = Properties.Resources.import_export;
+            btnImportExport.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImportExport.Location = new Point(0, 440);
+            btnImportExport.Name = "btnImportExport";
+            btnImportExport.Padding = new Padding(12, 0, 0, 0);
+            btnImportExport.Size = new Size(220, 60);
+            btnImportExport.TabIndex = 8;
+            btnImportExport.Text = " Import/Export";
+            btnImportExport.TextAlign = ContentAlignment.MiddleLeft;
+            btnImportExport.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnImportExport.UseVisualStyleBackColor = true;
+            btnImportExport.Click += btnImportExport_Click;
             // 
             // MainAdmin
             // 
@@ -240,7 +279,7 @@
             Controls.Add(panel1);
             Controls.Add(pnlMenu);
             Name = "MainAdmin";
-            Size = new Size(995, 545);
+            Size = new Size(974, 545);
             panel1.ResumeLayout(false);
             pnlMenu.ResumeLayout(false);
             ResumeLayout(false);
@@ -253,12 +292,14 @@
         private Panel pnlMenu;
         private Button btnTaskSettings;
         private Button btnStudentSettings;
-        private Button btnEventRequestsList;
+        private Button btnTasksList;
         private Button btnComplaintsList;
         private Button btnAgreements;
         private Button btnTasksSchedule;
         private Panel pnlLogo;
         private Panel pnlMainAdmin;
         private Button btnUpdate;
+        private Button btnSetTasks;
+        private Button btnImportExport;
     }
 }

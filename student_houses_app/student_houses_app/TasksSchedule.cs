@@ -1,4 +1,4 @@
-﻿using student_houses_app.models;
+﻿using student_houses_app.Enums;
 using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
@@ -14,18 +14,20 @@ namespace student_houses_app
 {
     public partial class TasksSchedule : UserControl
     {
-        public TaskManager TaskManager { get; }
+        public Main Main { get; set; }
         public DataTable Dt { get; set; }
         public Dictionary<Point, TaskAssignment> CellToTaskInfoMap { get; }
+        public int weekIndex { get; set; }
 
-        public TasksSchedule(TaskManager taskManager)
+        public TasksSchedule(Main main)
         {
             InitializeComponent();
 
+            this.Main = main;
+            this.weekIndex = 0;
+
             this.Dt = new DataTable("tasks");
             this.CellToTaskInfoMap = new Dictionary<Point, TaskAssignment>();
-
-            this.TaskManager = taskManager;
 
             CreateTaskScheduleTable();
         }
@@ -40,12 +42,10 @@ namespace student_houses_app
 
             this.Dt.Columns.Add("Day");
 
-            foreach (TaskInformation taskInfo in this.TaskManager.TasksInformation)
+            foreach (TaskInformation taskInfo in this.Main.MC.TaskManager.TasksInformation)
             {
                 this.Dt.Columns.Add(taskInfo.Name);
             }
-
-            this.Dt.Columns.Add("Event");
 
             foreach (DayOfWeek day in Enum.GetValues(typeof(DayOfWeek)))
             {
@@ -85,46 +85,57 @@ namespace student_houses_app
 
         public void AddTasksToSchedule(List<TaskAssignment> tasks)
         {
+            foreach (DataGridViewRow row in dgvSchedule.Rows)
+            {
+                for (int columnIndex = 1; columnIndex < dgvSchedule.Columns.Count; columnIndex++)
+                {
+                    row.Cells[columnIndex].Value = null;
+                }
+            }
+
             foreach (TaskAssignment task in tasks)
             {
-                DataRow row = Dt.Select($"Day = '{task.Date.DayOfWeek.ToString()}'").FirstOrDefault();
-
-                if (row != null)
+                if (task.Status != TaskInfoStatus.Canceled)
                 {
-                    int columnIndex = dgvSchedule.Columns[task.TaskInfo.Name].Index;
-                    int rowIndex = Dt.Rows.IndexOf(row);
+                    DataRow row = Dt.Select($"Day = '{task.Date.DayOfWeek.ToString()}'").FirstOrDefault();
 
-                    row[task.TaskInfo.Name] = task;
-                    this.CellToTaskInfoMap[new Point(columnIndex, rowIndex)] = task;
+                    if (row != null)
+                    {
+                        int columnIndex = dgvSchedule.Columns[task.TaskInfo.Name].Index;
+                        int rowIndex = Dt.Rows.IndexOf(row);
+
+                        row[task.TaskInfo.Name] = task;
+                        this.CellToTaskInfoMap[new Point(columnIndex, rowIndex)] = task;
+                    }
                 }
             }
         }
 
         private void dgvSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex >= 1 && e.ColumnIndex <= this.TaskManager.TasksInformation.Count)
+            if (e.ColumnIndex >= 1 && e.ColumnIndex <= this.Main.MC.TaskManager.TasksInformation.Count)
             {
                 Point cellCoordinates = new Point(e.ColumnIndex, e.RowIndex);
 
                 if (this.CellToTaskInfoMap.TryGetValue(cellCoordinates, out TaskAssignment task))
                 {
-                    DialogResult result = MessageBox.Show("Do you want to toggle the completion status of this task?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        task.IsCompleted = !task.IsCompleted;
-                        dgvSchedule.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = task;
-                        dgvSchedule.ClearSelection();
-                    }
+                    TaskViewStudent taskViewStudent = new TaskViewStudent(task);
+                    taskViewStudent.FormClosing += taskViewStudent_FormClosing;
+                    taskViewStudent.ShowDialog();
                 }
             }
+        }
+
+        private void taskViewStudent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(weekIndex));
         }
 
         private void DataGridView_SelectionChanged(object sender, EventArgs e)
         {
             foreach (DataGridViewCell cell in dgvSchedule.SelectedCells)
             {
-                if (cell.ColumnIndex < 1 || cell.ColumnIndex > this.TaskManager.TasksInformation.Count)
+                if (cell.ColumnIndex < 1 || cell.ColumnIndex > this.Main.MC.TaskManager.TasksInformation.Count)
                 {
                     cell.Selected = false;
                 }
@@ -133,7 +144,7 @@ namespace student_houses_app
 
         private void dgvSchedule_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex >= 1 && e.ColumnIndex <= this.TaskManager.TasksInformation.Count)
+            if (e.ColumnIndex >= 1 && e.ColumnIndex <= this.Main.MC.TaskManager.TasksInformation.Count)
             {
                 dgvSchedule.Cursor = Cursors.Hand;
             }
@@ -142,6 +153,24 @@ namespace student_houses_app
         private void dgvSchedule_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             dgvSchedule.Cursor = Cursors.Default;
+        }
+
+        private void btnCurrentWeek_Click(object sender, EventArgs e)
+        {
+            weekIndex = 0;
+            AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(weekIndex));
+        }
+
+        private void btnNextWeek_Click(object sender, EventArgs e)
+        {
+            weekIndex++;
+            AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(weekIndex));
+        }
+
+        private void btnPreviousWeek_Click(object sender, EventArgs e)
+        {
+            weekIndex--;
+            AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(weekIndex));
         }
     }
 }

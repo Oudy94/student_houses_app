@@ -43,7 +43,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(51, 51, 76);
-            label1.Location = new Point(146, 10);
+            label1.Location = new Point(155, 19);
             label1.Name = "label1";
             label1.Size = new Size(228, 37);
             label1.TabIndex = 2;
@@ -57,16 +57,17 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnSubmitComplaint);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 12);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(507, 336);
+            panel1.Size = new Size(528, 360);
             panel1.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(16, 116);
+            label4.Location = new Point(25, 125);
             label4.Name = "label4";
             label4.Size = new Size(73, 17);
             label4.TabIndex = 10;
@@ -74,9 +75,9 @@
             // 
             // txtComplaint
             // 
-            txtComplaint.BackColor = Color.FromArgb(230, 231, 233);
+            txtComplaint.BackColor = Color.White;
             txtComplaint.BorderStyle = BorderStyle.None;
-            txtComplaint.Location = new Point(16, 136);
+            txtComplaint.Location = new Point(25, 145);
             txtComplaint.Multiline = true;
             txtComplaint.Name = "txtComplaint";
             txtComplaint.Size = new Size(478, 132);
@@ -84,10 +85,10 @@
             // 
             // cmbStudent
             // 
-            cmbStudent.BackColor = Color.FromArgb(230, 231, 233);
+            cmbStudent.BackColor = Color.White;
             cmbStudent.FlatStyle = FlatStyle.Flat;
             cmbStudent.FormattingEnabled = true;
-            cmbStudent.Location = new Point(16, 83);
+            cmbStudent.Location = new Point(25, 92);
             cmbStudent.Name = "cmbStudent";
             cmbStudent.Size = new Size(208, 23);
             cmbStudent.TabIndex = 6;
@@ -99,7 +100,7 @@
             btnSubmitComplaint.FlatAppearance.BorderSize = 0;
             btnSubmitComplaint.FlatStyle = FlatStyle.Flat;
             btnSubmitComplaint.ForeColor = Color.White;
-            btnSubmitComplaint.Location = new Point(135, 287);
+            btnSubmitComplaint.Location = new Point(144, 296);
             btnSubmitComplaint.Name = "btnSubmitComplaint";
             btnSubmitComplaint.Size = new Size(241, 35);
             btnSubmitComplaint.TabIndex = 5;
@@ -111,7 +112,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(16, 65);
+            label2.Location = new Point(25, 74);
             label2.Name = "label2";
             label2.Size = new Size(59, 17);
             label2.TabIndex = 0;
@@ -121,7 +122,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(528, 360);
             Controls.Add(panel1);
             Name = "ComplaintForm";

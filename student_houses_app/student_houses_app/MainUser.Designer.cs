@@ -30,12 +30,12 @@
         {
             btnLoginForm = new Button();
             pnlMenu = new Panel();
-            btnEventRequest = new Button();
             btncomplaint = new Button();
             btnAgreements = new Button();
             btnTasksSchedule = new Button();
             pnlLogo = new Panel();
             panel1 = new Panel();
+            label1 = new Label();
             pnlMainUser = new Panel();
             pnlMenu.SuspendLayout();
             panel1.SuspendLayout();
@@ -43,12 +43,12 @@
             // 
             // btnLoginForm
             // 
-            btnLoginForm.BackColor = Color.Gray;
+            btnLoginForm.BackColor = Color.DimGray;
             btnLoginForm.Cursor = Cursors.Hand;
             btnLoginForm.FlatAppearance.BorderSize = 0;
             btnLoginForm.FlatStyle = FlatStyle.Flat;
             btnLoginForm.ForeColor = Color.White;
-            btnLoginForm.Location = new Point(678, 3);
+            btnLoginForm.Location = new Point(657, 3);
             btnLoginForm.Name = "btnLoginForm";
             btnLoginForm.Size = new Size(78, 35);
             btnLoginForm.TabIndex = 6;
@@ -59,7 +59,6 @@
             // pnlMenu
             // 
             pnlMenu.BackColor = Color.FromArgb(51, 51, 76);
-            pnlMenu.Controls.Add(btnEventRequest);
             pnlMenu.Controls.Add(btncomplaint);
             pnlMenu.Controls.Add(btnAgreements);
             pnlMenu.Controls.Add(btnTasksSchedule);
@@ -69,24 +68,6 @@
             pnlMenu.Name = "pnlMenu";
             pnlMenu.Size = new Size(220, 545);
             pnlMenu.TabIndex = 3;
-            // 
-            // btnEventRequest
-            // 
-            btnEventRequest.Dock = DockStyle.Top;
-            btnEventRequest.FlatAppearance.BorderSize = 0;
-            btnEventRequest.FlatStyle = FlatStyle.Flat;
-            btnEventRequest.ForeColor = Color.Gainsboro;
-            btnEventRequest.Image = Properties.Resources._event;
-            btnEventRequest.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEventRequest.Location = new Point(0, 260);
-            btnEventRequest.Name = "btnEventRequest";
-            btnEventRequest.Padding = new Padding(12, 0, 0, 0);
-            btnEventRequest.Size = new Size(220, 60);
-            btnEventRequest.TabIndex = 3;
-            btnEventRequest.Text = " Event request";
-            btnEventRequest.TextAlign = ContentAlignment.MiddleLeft;
-            btnEventRequest.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEventRequest.UseVisualStyleBackColor = true;
             // 
             // btncomplaint
             // 
@@ -157,19 +138,31 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(btnLoginForm);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(220, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(759, 53);
+            panel1.Size = new Size(741, 80);
             panel1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(318, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(144, 40);
+            label1.TabIndex = 7;
+            label1.Text = "Welcome";
             // 
             // pnlMainUser
             // 
             pnlMainUser.Dock = DockStyle.Fill;
-            pnlMainUser.Location = new Point(220, 53);
+            pnlMainUser.Location = new Point(220, 80);
             pnlMainUser.Name = "pnlMainUser";
-            pnlMainUser.Size = new Size(759, 492);
+            pnlMainUser.Size = new Size(741, 465);
             pnlMainUser.TabIndex = 5;
             // 
             // MainUser
@@ -182,21 +175,22 @@
             Controls.Add(pnlMenu);
             Margin = new Padding(2, 1, 2, 1);
             Name = "MainUser";
-            Size = new Size(979, 545);
+            Size = new Size(961, 545);
             pnlMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private Button btnLoginForm;
         private Panel pnlMenu;
-        private Button btnEventRequest;
         private Button btncomplaint;
         private Button btnAgreements;
         private Button btnTasksSchedule;
         private Panel pnlLogo;
         private Panel panel1;
         private Panel pnlMainUser;
+        private Label label1;
     }
 }

@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,45 +14,42 @@ namespace student_houses_app
 {
     public partial class AgreementsList : UserControl
     {
-        private AgreementManager agreementManager;
-        private StudentManager studentManager;
+        public Main Main { get; set; }
 
-        public AgreementsList(AgreementManager agreementManager, StudentManager studentManager)
+        public AgreementsList(Main main)
         {
             InitializeComponent();
 
-            this.agreementManager = agreementManager;
-            this.studentManager = studentManager;
+            this.Main = main;
         }
 
         public void UpdateAgreementsList()
         {
-            dgvAgreementisList.Rows.Clear();
-            foreach (Agreement agreement in agreementManager.Agreements)
+            dgvAgreementsList.Rows.Clear();
+            foreach (Agreement agreement in this.Main.MC.AgreementManager.Agreements)
             {
-                int rowIndex = dgvAgreementisList.Rows.Add(agreement.Id, agreement.StudentA, agreement.StudentB, agreement.AgreementDesc);
-                dgvAgreementisList.Rows[rowIndex].Tag = agreement;
-
+                int rowIndex = dgvAgreementsList.Rows.Add(agreement.Id, string.Join(", ", agreement.Students), agreement.AgreementDesc);
+                dgvAgreementsList.Rows[rowIndex].Tag = agreement;
             }
         }
 
         public void AddAgreementToList(Agreement agreement)
         {
-            int rowIndex = dgvAgreementisList.Rows.Add(agreement.Id, agreement.StudentA, agreement.StudentB, agreement.AgreementDesc);
-            dgvAgreementisList.Rows[rowIndex].Tag = agreement;
+            int rowIndex = dgvAgreementsList.Rows.Add(agreement.Id, string.Join(", ", agreement.Students), agreement.AgreementDesc);
+            dgvAgreementsList.Rows[rowIndex].Tag = agreement;
         }
 
         private void btnAddAgreement_Click(object sender, EventArgs e)
         {
-            AgreementForm agreementForm = new AgreementForm(this.agreementManager, this.studentManager, this);
+            AgreementForm agreementForm = new AgreementForm(this.Main, this);
             agreementForm.ShowDialog();
         }
 
-        private void dgvAgreementisList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvAgreementsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvAgreementisList.Columns["View"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvAgreementsList.Columns["View"].Index)
             {
-                DataGridViewRow clickedRow = dgvAgreementisList.Rows[e.RowIndex];
+                DataGridViewRow clickedRow = dgvAgreementsList.Rows[e.RowIndex];
 
                 if (clickedRow.Tag is Agreement agreement)
                 {

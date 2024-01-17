@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +19,8 @@ namespace student_houses_app
         public ComplaintsList ComplaintsList { get; }
         public TaskSettings TaskSettings { get; }
         public StudentSettings StudentSettings { get; }
+        public TaskListControl TaskListControl { get; }
+        public ImportExportControl ImportExportControl { get; }
 
         public MainAdmin(Main main)
         {
@@ -27,21 +28,23 @@ namespace student_houses_app
 
             this.Main = main;
 
-            this.TasksSchedule = new TasksSchedule(this.Main.TaskManager);
-            this.AgreementsList = new AgreementsList(this.Main.AgreementManager, this.Main.StudentManager);
-            this.ComplaintsList = new ComplaintsList(this.Main.ComplaintManager, this.Main.StudentManager);
-            this.TaskSettings = new TaskSettings(this.Main.TaskManager);
-            this.StudentSettings = new StudentSettings(this.Main.StudentManager);
+            this.TasksSchedule = new TasksSchedule(this.Main);
+            this.AgreementsList = new AgreementsList(this.Main);
+            this.ComplaintsList = new ComplaintsList(this.Main);
+            this.TaskSettings = new TaskSettings(this.Main.MC.TaskManager);
+            this.StudentSettings = new StudentSettings(this.Main.MC.StudentManager);
+            this.TaskListControl = new TaskListControl(this.Main);
+            this.ImportExportControl = new ImportExportControl(this.Main);
 
             pnlMainAdmin.Controls.Add(this.TasksSchedule);
-            this.TasksSchedule.AddTasksToSchedule(this.Main.TaskManager.GetTasksForWeek(0));
+            this.TasksSchedule.AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(this.TasksSchedule.weekIndex));
         }
 
         private void btnTasksSchedule_Click(object sender, EventArgs e)
         {
             pnlMainAdmin.Controls.Clear();
             pnlMainAdmin.Controls.Add(this.TasksSchedule);
-            this.TasksSchedule.AddTasksToSchedule(this.Main.TaskManager.GetTasksForWeek(0));
+            this.TasksSchedule.AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(this.TasksSchedule.weekIndex));
         }
 
         private void btnAgreements_Click(object sender, EventArgs e)
@@ -71,15 +74,31 @@ namespace student_houses_app
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.Main.TaskManager.SetTasksForTheWeek(this.Main.StudentManager);
             this.TasksSchedule.CreateTaskScheduleTable();
-            this.TasksSchedule.AddTasksToSchedule(this.Main.TaskManager.GetTasksForWeek(0));
+            this.TasksSchedule.AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(this.TasksSchedule.weekIndex));
         }
 
         private void btnStudentSettings_Click(object sender, EventArgs e)
         {
             pnlMainAdmin.Controls.Clear();
             pnlMainAdmin.Controls.Add(this.StudentSettings);
+        }
+
+        private void btnTasksList_Click(object sender, EventArgs e)
+        {
+            pnlMainAdmin.Controls.Clear();
+            pnlMainAdmin.Controls.Add(this.TaskListControl);
+        }
+
+        private void btnSetTasks_Click(object sender, EventArgs e)
+        {
+            this.Main.MC.TaskManager.SetTasksForTwoWeeks(this.Main.MC.StudentManager);
+        }
+
+        private void btnImportExport_Click(object sender, EventArgs e)
+        {
+            pnlMainAdmin.Controls.Clear();
+            pnlMainAdmin.Controls.Add(this.ImportExportControl);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using student_houses_app.models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ namespace student_houses_app
 
             this.StudentManager = studentManager;
 
-            foreach (Student student in this.StudentManager.StudentsDict.Values)
+            foreach (Student student in this.StudentManager.StudentsByEmail.Values)
             {
                 lstStudents.Items.Add(student);
             }
@@ -35,6 +35,7 @@ namespace student_houses_app
                 txtStudentEmail.Text = "";
                 cmbStudentActivity.SelectedIndex = 0;
                 lstStudentTasks.SelectedItems.Clear();
+                lstStudentTasks.Items.Clear();
                 return;
             }
 
@@ -43,6 +44,8 @@ namespace student_houses_app
             txtStudentEmail.Text = student.Email;
             cmbStudentActivity.SelectedIndex = student.IsActive ? 0 : 1;
             lstStudentTasks.SelectedItems.Clear();
+            lstStudentTasks.Items.Clear();
+
             foreach (TaskAssignment task in student.Tasks)
             {
                 lstStudentTasks.Items.Add(task.TaskInfo);
