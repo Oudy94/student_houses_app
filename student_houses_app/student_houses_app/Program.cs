@@ -1,4 +1,7 @@
-namespace student_houses_app
+using student_houses_app;
+using student_houses_app.Models;
+
+namespace ProjectGroupApp
 {
     internal static class Program
     {
@@ -11,7 +14,10 @@ namespace student_houses_app
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            Main main = new Main();
+
+            Application.Run(main);
         }
     }
 }
