@@ -32,30 +32,29 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            dgvAgreementisList = new DataGridView();
+            dgvAgreementsList = new DataGridView();
             btnAddAgreement = new Button();
             ID = new DataGridViewTextBoxColumn();
-            StudentA = new DataGridViewTextBoxColumn();
-            StudentB = new DataGridViewTextBoxColumn();
+            Students = new DataGridViewTextBoxColumn();
             Agreement = new DataGridViewTextBoxColumn();
             View = new DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvAgreementisList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAgreementsList).BeginInit();
             SuspendLayout();
             // 
-            // dgvAgreementisList
+            // dgvAgreementsList
             // 
-            dgvAgreementisList.AllowUserToAddRows = false;
-            dgvAgreementisList.AllowUserToDeleteRows = false;
-            dgvAgreementisList.AllowUserToResizeColumns = false;
-            dgvAgreementisList.AllowUserToResizeRows = false;
+            dgvAgreementsList.AllowUserToAddRows = false;
+            dgvAgreementsList.AllowUserToDeleteRows = false;
+            dgvAgreementsList.AllowUserToResizeColumns = false;
+            dgvAgreementsList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
-            dgvAgreementisList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvAgreementisList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvAgreementisList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAgreementisList.BackgroundColor = SystemColors.ControlLight;
-            dgvAgreementisList.BorderStyle = BorderStyle.None;
-            dgvAgreementisList.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgvAgreementisList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvAgreementsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvAgreementsList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvAgreementsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAgreementsList.BackgroundColor = SystemColors.ControlLight;
+            dgvAgreementsList.BorderStyle = BorderStyle.None;
+            dgvAgreementsList.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvAgreementsList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 51, 76);
             dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -63,10 +62,10 @@
             dataGridViewCellStyle2.Padding = new Padding(16, 0, 0, 0);
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 51, 76);
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dgvAgreementisList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvAgreementisList.ColumnHeadersHeight = 37;
-            dgvAgreementisList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvAgreementisList.Columns.AddRange(new DataGridViewColumn[] { ID, StudentA, StudentB, Agreement, View });
+            dgvAgreementsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvAgreementsList.ColumnHeadersHeight = 37;
+            dgvAgreementsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvAgreementsList.Columns.AddRange(new DataGridViewColumn[] { ID, Students, Agreement, View });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.WhiteSmoke;
             dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -74,28 +73,28 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvAgreementisList.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvAgreementisList.EnableHeadersVisualStyles = false;
-            dgvAgreementisList.Location = new Point(3, 3);
-            dgvAgreementisList.MultiSelect = false;
-            dgvAgreementisList.Name = "dgvAgreementisList";
-            dgvAgreementisList.ReadOnly = true;
+            dgvAgreementsList.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvAgreementsList.EnableHeadersVisualStyles = false;
+            dgvAgreementsList.Location = new Point(3, 3);
+            dgvAgreementsList.MultiSelect = false;
+            dgvAgreementsList.Name = "dgvAgreementsList";
+            dgvAgreementsList.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = Color.Transparent;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = Color.Transparent;
             dataGridViewCellStyle4.SelectionForeColor = Color.Transparent;
-            dgvAgreementisList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvAgreementisList.RowHeadersVisible = false;
-            dgvAgreementisList.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgvAgreementisList.RowTemplate.Height = 50;
-            dgvAgreementisList.ScrollBars = ScrollBars.Vertical;
-            dgvAgreementisList.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvAgreementisList.ShowEditingIcon = false;
-            dgvAgreementisList.Size = new Size(749, 324);
-            dgvAgreementisList.TabIndex = 1;
-            dgvAgreementisList.CellContentClick += dgvAgreementisList_CellContentClick;
+            dgvAgreementsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvAgreementsList.RowHeadersVisible = false;
+            dgvAgreementsList.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgvAgreementsList.RowTemplate.Height = 50;
+            dgvAgreementsList.ScrollBars = ScrollBars.Vertical;
+            dgvAgreementsList.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvAgreementsList.ShowEditingIcon = false;
+            dgvAgreementsList.Size = new Size(749, 324);
+            dgvAgreementsList.TabIndex = 1;
+            dgvAgreementsList.CellContentClick += dgvAgreementsList_CellContentClick;
             // 
             // btnAddAgreement
             // 
@@ -119,19 +118,12 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             // 
-            // StudentA
+            // Students
             // 
-            StudentA.FillWeight = 35F;
-            StudentA.HeaderText = "Student A";
-            StudentA.Name = "StudentA";
-            StudentA.ReadOnly = true;
-            // 
-            // StudentB
-            // 
-            StudentB.FillWeight = 35F;
-            StudentB.HeaderText = "Student B";
-            StudentB.Name = "StudentB";
-            StudentB.ReadOnly = true;
+            Students.FillWeight = 50F;
+            Students.HeaderText = "Students";
+            Students.Name = "Students";
+            Students.ReadOnly = true;
             // 
             // Agreement
             // 
@@ -153,20 +145,19 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnAddAgreement);
-            Controls.Add(dgvAgreementisList);
+            Controls.Add(dgvAgreementsList);
             Name = "AgreementsList";
             Size = new Size(755, 375);
-            ((System.ComponentModel.ISupportInitialize)dgvAgreementisList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAgreementsList).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvAgreementisList;
+        private DataGridView dgvAgreementsList;
         private Button btnAddAgreement;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn StudentA;
-        private DataGridViewTextBoxColumn StudentB;
+        private DataGridViewTextBoxColumn Students;
         private DataGridViewTextBoxColumn Agreement;
         private DataGridViewButtonColumn View;
     }

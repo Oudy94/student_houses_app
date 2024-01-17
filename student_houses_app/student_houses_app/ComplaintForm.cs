@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,18 +14,16 @@ namespace student_houses_app
 {
     public partial class ComplaintForm : Form
     {
-        ComplaintManager complaintManager;
-        StudentManager studentManager;
+        public Main Main { get; set; }
 
-        public ComplaintForm(ComplaintManager complaintManager, StudentManager studentManager)
+        public ComplaintForm(Main main)
         {
             InitializeComponent();
 
-            this.complaintManager = complaintManager;
-            this.studentManager = studentManager;
+            this.Main = main;
 
             cmbStudent.Items.Insert(0, "Anonymous");
-            foreach (Student student in studentManager.StudentsDict.Values)
+            foreach (Student student in this.Main.MC.StudentManager.StudentsByEmail.Values)
             {
                 cmbStudent.Items.Add(student);
             }
@@ -44,7 +41,7 @@ namespace student_houses_app
                 return;
             }
 
-            complaintManager.AddComplaint(selectedIndexStudent > 0 ? (Student)cmbStudent.SelectedItem : null, complaintDescription);
+            this.Main.MC.ComplaintManager.AddComplaint(selectedIndexStudent > 0 ? (Student)cmbStudent.SelectedItem : null, complaintDescription);
             MessageBox.Show("Your complaint was sent successfully.");
             this.Close();
         }

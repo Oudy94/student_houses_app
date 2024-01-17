@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,10 +63,6 @@ namespace student_houses_app
             }
 
             txtTaskDescription.Text = taskInfo.Description;
-        }
-
-        private void lstTaskDays_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void btnSaveTask_Click(object sender, EventArgs e)

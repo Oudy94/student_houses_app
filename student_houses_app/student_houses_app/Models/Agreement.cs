@@ -1,4 +1,4 @@
-﻿using student_houses_app.models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,23 +7,25 @@ using System.Threading.Tasks;
 
 namespace student_houses_app.Models
 {
+    [Serializable]
     public class Agreement
     {
         private static int nextId = 1;
 
         public int Id { get; }
-        public Student StudentA { get; }
-        public Student StudentB { get; }
+
+        public List<Student> Students { get; set; }
         public string AgreementDesc { get; set; }
         public DateTime CreatedDate { get; }
+        public bool IsActive { get; set; }
 
-        public Agreement(Student studentA, Student studentB, string agreementDesc)
+        public Agreement(List<Student> students, string agreementDesc)
         {
             this.Id = nextId++;
-            this.StudentA = studentA;
-            this.StudentB = studentB;
+            this.Students = students;
             this.AgreementDesc = agreementDesc;
             this.CreatedDate = DateTime.Now;
+            this.IsActive = true;
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            lstStudents = new ListBox();
+            btnAddStudent = new Button();
             label4 = new Label();
             txtAgreement = new TextBox();
-            cmbStudentB = new ComboBox();
-            label3 = new Label();
-            cmbStudentA = new ComboBox();
+            cmbStudents = new ComboBox();
             btnSubmitAgreement = new Button();
             label2 = new Label();
             panel1.SuspendLayout();
@@ -53,24 +53,49 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lstStudents);
+            panel1.Controls.Add(btnAddStudent);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(txtAgreement);
-            panel1.Controls.Add(cmbStudentB);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(cmbStudentA);
+            panel1.Controls.Add(cmbStudents);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnSubmitAgreement);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 12);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(507, 336);
+            panel1.Size = new Size(564, 391);
             panel1.TabIndex = 3;
+            // 
+            // lstStudents
+            // 
+            lstStudents.FormattingEnabled = true;
+            lstStudents.ItemHeight = 15;
+            lstStudents.Location = new Point(16, 69);
+            lstStudents.Name = "lstStudents";
+            lstStudents.Size = new Size(267, 109);
+            lstStudents.TabIndex = 15;
+            // 
+            // btnAddStudent
+            // 
+            btnAddStudent.BackColor = Color.FromArgb(51, 51, 76);
+            btnAddStudent.Cursor = Cursors.Hand;
+            btnAddStudent.FlatAppearance.BorderSize = 0;
+            btnAddStudent.FlatStyle = FlatStyle.Flat;
+            btnAddStudent.ForeColor = Color.White;
+            btnAddStudent.Location = new Point(489, 69);
+            btnAddStudent.Name = "btnAddStudent";
+            btnAddStudent.Size = new Size(63, 23);
+            btnAddStudent.TabIndex = 11;
+            btnAddStudent.Text = "Add";
+            btnAddStudent.UseVisualStyleBackColor = false;
+            btnAddStudent.Click += btnAddStudent_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(16, 116);
+            label4.Location = new Point(12, 184);
             label4.Name = "label4";
             label4.Size = new Size(79, 17);
             label4.TabIndex = 10;
@@ -78,43 +103,23 @@
             // 
             // txtAgreement
             // 
-            txtAgreement.BackColor = Color.FromArgb(230, 231, 233);
+            txtAgreement.BackColor = Color.White;
             txtAgreement.BorderStyle = BorderStyle.None;
-            txtAgreement.Location = new Point(16, 136);
+            txtAgreement.Location = new Point(12, 205);
             txtAgreement.Multiline = true;
             txtAgreement.Name = "txtAgreement";
-            txtAgreement.Size = new Size(478, 132);
+            txtAgreement.Size = new Size(540, 131);
             txtAgreement.TabIndex = 9;
             // 
-            // cmbStudentB
+            // cmbStudents
             // 
-            cmbStudentB.BackColor = Color.FromArgb(230, 231, 233);
-            cmbStudentB.FlatStyle = FlatStyle.Flat;
-            cmbStudentB.FormattingEnabled = true;
-            cmbStudentB.Location = new Point(253, 83);
-            cmbStudentB.Name = "cmbStudentB";
-            cmbStudentB.Size = new Size(208, 23);
-            cmbStudentB.TabIndex = 8;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(253, 65);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 17);
-            label3.TabIndex = 7;
-            label3.Text = "Student B:";
-            // 
-            // cmbStudentA
-            // 
-            cmbStudentA.BackColor = Color.FromArgb(230, 231, 233);
-            cmbStudentA.FlatStyle = FlatStyle.Flat;
-            cmbStudentA.FormattingEnabled = true;
-            cmbStudentA.Location = new Point(16, 83);
-            cmbStudentA.Name = "cmbStudentA";
-            cmbStudentA.Size = new Size(208, 23);
-            cmbStudentA.TabIndex = 6;
+            cmbStudents.BackColor = Color.White;
+            cmbStudents.FlatStyle = FlatStyle.Flat;
+            cmbStudents.FormattingEnabled = true;
+            cmbStudents.Location = new Point(298, 69);
+            cmbStudents.Name = "cmbStudents";
+            cmbStudents.Size = new Size(185, 23);
+            cmbStudents.TabIndex = 8;
             // 
             // btnSubmitAgreement
             // 
@@ -123,9 +128,9 @@
             btnSubmitAgreement.FlatAppearance.BorderSize = 0;
             btnSubmitAgreement.FlatStyle = FlatStyle.Flat;
             btnSubmitAgreement.ForeColor = Color.White;
-            btnSubmitAgreement.Location = new Point(135, 287);
+            btnSubmitAgreement.Location = new Point(163, 348);
             btnSubmitAgreement.Name = "btnSubmitAgreement";
-            btnSubmitAgreement.Size = new Size(241, 35);
+            btnSubmitAgreement.Size = new Size(241, 37);
             btnSubmitAgreement.TabIndex = 5;
             btnSubmitAgreement.Text = "SUBMIT";
             btnSubmitAgreement.UseVisualStyleBackColor = false;
@@ -135,18 +140,18 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(16, 65);
+            label2.Location = new Point(16, 49);
             label2.Name = "label2";
-            label2.Size = new Size(72, 17);
+            label2.Size = new Size(65, 17);
             label2.TabIndex = 0;
-            label2.Text = "Student A:";
+            label2.Text = "Students:";
             // 
             // AgreementForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(528, 360);
+            BackColor = SystemColors.ControlLight;
+            ClientSize = new Size(564, 391);
             Controls.Add(panel1);
             Name = "AgreementForm";
             Text = "AgreementForm";
@@ -161,10 +166,10 @@
         private Panel panel1;
         private Button btnSubmitAgreement;
         private Label label2;
-        private ComboBox cmbStudentB;
-        private Label label3;
-        private ComboBox cmbStudentA;
+        private ComboBox cmbStudents;
         private Label label4;
         private TextBox txtAgreement;
+        private Button btnAddStudent;
+        private ListBox lstStudents;
     }
 }

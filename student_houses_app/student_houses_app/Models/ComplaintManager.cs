@@ -1,4 +1,4 @@
-﻿using student_houses_app.models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace student_houses_app.Models
 {
+    [Serializable]
     public class ComplaintManager
     {
         private List<Complaint> complaints;

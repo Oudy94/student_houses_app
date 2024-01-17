@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,40 +13,29 @@ namespace student_houses_app
 {
     public partial class AgreementForm : Form
     {
-        AgreementManager agreementManager;
-        StudentManager studentManager;
-        AgreementsList agreementList;
+        public Main Main { get; set; }
+        private AgreementsList agreementList;
 
-        public AgreementForm(AgreementManager agreementManager, StudentManager studentManager, AgreementsList agreementList)
+        public AgreementForm(Main main, AgreementsList agreementList)
         {
             InitializeComponent();
 
-            this.agreementManager = agreementManager;
-            this.studentManager = studentManager;
+            this.Main = main;
             this.agreementList = agreementList;
 
-            foreach (Student student in studentManager.StudentsDict.Values)
+            foreach (Student student in this.Main.MC.StudentManager.StudentsByEmail.Values)
             {
-                cmbStudentA.Items.Add(student);
-                cmbStudentB.Items.Add(student);
+                cmbStudents.Items.Add(student);
             }
         }
 
         private void btnSubmitAgreement_Click(object sender, EventArgs e)
         {
-            int selectedIndexStudentA = cmbStudentA.SelectedIndex;
-            int selectedIndexStudentB = cmbStudentB.SelectedIndex;
             string agreementDescription = txtAgreement.Text;
 
-            if (selectedIndexStudentA == -1 || selectedIndexStudentB == -1)
+            if (lstStudents.Items.Count < 2)
             {
-                MessageBox.Show("You have to select the students.");
-                return;
-            }
-
-            if (selectedIndexStudentA == selectedIndexStudentB)
-            {
-                MessageBox.Show("You cannot select the same student.");
+                MessageBox.Show("You have to add the students.");
                 return;
             }
 
@@ -57,10 +45,21 @@ namespace student_houses_app
                 return;
             }
 
-            Agreement agreement = agreementManager.AddAgreement((Student)cmbStudentA.SelectedItem, (Student)cmbStudentB.SelectedItem, agreementDescription);
+            Agreement agreement = this.Main.MC.AgreementManager.AddAgreement(lstStudents.Items.Cast<Student>().ToList(), agreementDescription);
             agreementList.AddAgreementToList(agreement);
-            MessageBox.Show("Your agrement was sent successfully.");
+            MessageBox.Show("Your agreement was sent successfully.");
             this.Close();
+        }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            if (lstStudents.Items.Contains((Student)cmbStudents.SelectedItem))
+            {
+                MessageBox.Show("This student is already added.");
+                return;
+            }
+
+            lstStudents.Items.Add((Student)cmbStudents.SelectedItem);
         }
     }
 }

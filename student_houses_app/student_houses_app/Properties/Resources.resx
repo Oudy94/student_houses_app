@@ -127,6 +127,9 @@
   <data name="event" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\event.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="import_export" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\import_export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="schedule" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedule.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,13 @@
   <data name="student_manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\student_manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tasks_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tasks_list.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="task_setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\task_setting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thump_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thump_up.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

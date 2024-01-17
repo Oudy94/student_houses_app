@@ -44,7 +44,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(51, 51, 76);
-            label1.Location = new Point(170, 34);
+            label1.Location = new Point(164, 19);
             label1.Name = "label1";
             label1.Size = new Size(181, 37);
             label1.TabIndex = 0;
@@ -52,15 +52,17 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(chkShowPassword);
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 12);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(497, 289);
+            panel1.Size = new Size(521, 313);
             panel1.TabIndex = 1;
             // 
             // btnLogin
@@ -70,7 +72,7 @@
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(140, 231);
+            btnLogin.Location = new Point(140, 238);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(241, 35);
             btnLogin.TabIndex = 5;
@@ -83,6 +85,7 @@
             chkShowPassword.AutoSize = true;
             chkShowPassword.Cursor = Cursors.Hand;
             chkShowPassword.FlatStyle = FlatStyle.Flat;
+            chkShowPassword.ForeColor = Color.Black;
             chkShowPassword.Location = new Point(262, 174);
             chkShowPassword.Name = "chkShowPassword";
             chkShowPassword.Size = new Size(119, 21);
@@ -93,7 +96,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.BackColor = Color.FromArgb(230, 231, 233);
+            txtPassword.BackColor = Color.White;
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(140, 147);
@@ -105,6 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(140, 127);
             label3.Name = "label3";
             label3.Size = new Size(66, 17);
@@ -113,7 +117,7 @@
             // 
             // txtUsername
             // 
-            txtUsername.BackColor = Color.FromArgb(230, 231, 233);
+            txtUsername.BackColor = Color.White;
             txtUsername.BorderStyle = BorderStyle.None;
             txtUsername.Font = new Font("MS UI Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtUsername.Location = new Point(140, 93);
@@ -124,6 +128,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(140, 73);
             label2.Name = "label2";
             label2.Size = new Size(69, 17);
@@ -134,9 +139,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(521, 313);
-            Controls.Add(label1);
             Controls.Add(panel1);
             Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ForeColor = Color.FromArgb(164, 165, 169);
@@ -146,7 +150,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

@@ -93,6 +93,16 @@ namespace student_houses_app.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap import_export {
+            get {
+                object obj = ResourceManager.GetObject("import_export", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap schedule {
             get {
                 object obj = ResourceManager.GetObject("schedule", resourceCulture);
@@ -126,6 +136,26 @@ namespace student_houses_app.Properties {
         internal static System.Drawing.Bitmap task_setting {
             get {
                 object obj = ResourceManager.GetObject("task_setting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tasks_list {
+            get {
+                object obj = ResourceManager.GetObject("tasks_list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thump_up {
+            get {
+                object obj = ResourceManager.GetObject("thump_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

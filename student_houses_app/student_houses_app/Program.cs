@@ -1,5 +1,4 @@
 using student_houses_app;
-using student_houses_app.models;
 using student_houses_app.Models;
 
 namespace ProjectGroupApp

@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,21 +14,19 @@ namespace student_houses_app
 {
     public partial class ComplaintsList : UserControl
     {
-        private ComplaintManager complaintManager;
-        private StudentManager studentManager;
+        public Main Main { get; set; }
 
-        public ComplaintsList(ComplaintManager complaintManager, StudentManager studentManager)
+        public ComplaintsList(Main main)
         {
             InitializeComponent();
 
-            this.complaintManager = complaintManager;
-            this.studentManager = studentManager;
+            this.Main = main;
         }
 
         public void UpdateComplaintsList()
         {
             dgvComplaintsList.Rows.Clear();
-            foreach (Complaint complaint in complaintManager.Complaints)
+            foreach (Complaint complaint in this.Main.MC.ComplaintManager.Complaints)
             {
                 int rowIndex = dgvComplaintsList.Rows.Add(complaint.Id, complaint.Student != null ? complaint.Student : "Anonymous", complaint.ComplaintDesc);
                 dgvComplaintsList.Rows[rowIndex].Tag = complaint;
@@ -45,7 +42,7 @@ namespace student_houses_app
 
         private void btnAddComplaint_Click(object sender, EventArgs e)
         {
-            ComplaintForm complaintForm = new ComplaintForm(this.complaintManager, this.studentManager);
+            ComplaintForm complaintForm = new ComplaintForm(this.Main);
             complaintForm.ShowDialog();
         }
 

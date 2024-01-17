@@ -13,13 +13,13 @@ namespace student_houses_app
 {
     public partial class ComplaintView : Form
     {
-        public ComplaintView(Complaint comlaint)
+        public ComplaintView(Complaint complaint)
         {
             InitializeComponent();
 
-            txtStudent.Text = comlaint.Student != null ? comlaint.Student.Name : "Anonymous";
-            txtComplaint.Text = comlaint.ComplaintDesc;
-            lblCreatedDate.Text = comlaint.CreatedDate.ToString("dd/MM/yyyy");
+            txtStudent.Text = complaint.Student != null ? complaint.Student.Name : "Anonymous";
+            txtComplaint.Text = complaint.ComplaintDesc;
+            lblCreatedDate.Text = complaint.CreatedDate.ToString("dd/MM/yyyy");
         }
     }
 }

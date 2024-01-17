@@ -33,9 +33,10 @@
             // 
             // pnlMain
             // 
-            pnlMain.Location = new Point(2, 2);
+            pnlMain.Dock = DockStyle.Fill;
+            pnlMain.Location = new Point(0, 0);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1000, 543);
+            pnlMain.Size = new Size(976, 573);
             pnlMain.TabIndex = 0;
             // 
             // Main
@@ -43,7 +44,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1004, 548);
+            ClientSize = new Size(976, 573);
             Controls.Add(pnlMain);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

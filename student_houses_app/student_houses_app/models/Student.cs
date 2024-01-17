@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace student_houses_app.models
+namespace student_houses_app.Models
 {
+    [Serializable]
     public class Student
     {
         private static int nextId = 1;
@@ -16,6 +17,7 @@ namespace student_houses_app.models
         public bool IsActive { get; set; }
         public DateTime RegistrationDate { get; }
         public List<TaskAssignment> Tasks { get; }
+        public List<(DateTime, DateTime)> AwayPeriods { get; set; }
 
         public Student(string name, string email)
         {
@@ -25,6 +27,7 @@ namespace student_houses_app.models
             this.IsActive = true;
             this.RegistrationDate = DateTime.Now;
             this.Tasks = new List<TaskAssignment>();
+            this.AwayPeriods = new List<(DateTime, DateTime)>();
         }
 
         public void AddTask(TaskAssignment task)
@@ -34,7 +37,7 @@ namespace student_houses_app.models
 
         public override string ToString()
         {
-            return $"{this.Id}- {this.Name}";
+            return $"{this.Name} ({this.Id})";
         }
     }
 }

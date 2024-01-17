@@ -1,5 +1,4 @@
-﻿using student_houses_app.models;
-using student_houses_app.Models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,11 +23,11 @@ namespace student_houses_app
 
             this.Main = main;
 
-            this.TasksSchedule = new TasksSchedule(this.Main.TaskManager);
-            this.AgreementsList = new AgreementsList(this.Main.AgreementManager, this.Main.StudentManager);
+            this.TasksSchedule = new TasksSchedule(this.Main);
+            this.AgreementsList = new AgreementsList(this.Main);
 
             pnlMainUser.Controls.Add(this.TasksSchedule);
-            this.TasksSchedule.AddTasksToSchedule(this.Main.TaskManager.GetTasksForWeek(0));
+            this.TasksSchedule.AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(this.TasksSchedule.weekIndex));
         }
 
         private void btnLoginForm_Click(object sender, EventArgs e)
@@ -41,7 +40,7 @@ namespace student_houses_app
         {
             pnlMainUser.Controls.Clear();
             pnlMainUser.Controls.Add(this.TasksSchedule);
-            this.TasksSchedule.AddTasksToSchedule(this.Main.TaskManager.GetTasksForWeek(0));
+            this.TasksSchedule.AddTasksToSchedule(this.Main.MC.TaskManager.GetTasksForWeek(this.TasksSchedule.weekIndex));
         }
 
         private void btnAgreements_Click(object sender, EventArgs e)
@@ -53,7 +52,7 @@ namespace student_houses_app
 
         private void btncomplaint_Click(object sender, EventArgs e)
         {
-            ComplaintForm complaintForm = new ComplaintForm(this.Main.ComplaintManager, this.Main.StudentManager);
+            ComplaintForm complaintForm = new ComplaintForm(this.Main);
             complaintForm.ShowDialog();
         }
     }

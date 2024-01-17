@@ -33,6 +33,9 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dgvSchedule = new DataGridView();
+            btnCurrentWeek = new Button();
+            btnNextWeek = new Button();
+            btnPreviousWeek = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvSchedule).BeginInit();
             SuspendLayout();
             // 
@@ -86,20 +89,53 @@
             dgvSchedule.ScrollBars = ScrollBars.Vertical;
             dgvSchedule.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvSchedule.ShowEditingIcon = false;
-            dgvSchedule.Size = new Size(749, 395);
+            dgvSchedule.Size = new Size(749, 385);
             dgvSchedule.TabIndex = 1;
             dgvSchedule.CellClick += dgvSchedule_CellClick;
             dgvSchedule.CellMouseEnter += dgvSchedule_CellMouseEnter;
             dgvSchedule.CellMouseLeave += dgvSchedule_CellMouseLeave;
             dgvSchedule.SelectionChanged += DataGridView_SelectionChanged;
             // 
+            // btnCurrentWeek
+            // 
+            btnCurrentWeek.Location = new Point(337, 394);
+            btnCurrentWeek.Name = "btnCurrentWeek";
+            btnCurrentWeek.Size = new Size(109, 23);
+            btnCurrentWeek.TabIndex = 2;
+            btnCurrentWeek.Text = "Current Week";
+            btnCurrentWeek.UseVisualStyleBackColor = true;
+            btnCurrentWeek.Click += btnCurrentWeek_Click;
+            // 
+            // btnNextWeek
+            // 
+            btnNextWeek.Location = new Point(485, 394);
+            btnNextWeek.Name = "btnNextWeek";
+            btnNextWeek.Size = new Size(55, 23);
+            btnNextWeek.TabIndex = 3;
+            btnNextWeek.Text = ">>";
+            btnNextWeek.UseVisualStyleBackColor = true;
+            btnNextWeek.Click += btnNextWeek_Click;
+            // 
+            // btnPreviousWeek
+            // 
+            btnPreviousWeek.Location = new Point(242, 394);
+            btnPreviousWeek.Name = "btnPreviousWeek";
+            btnPreviousWeek.Size = new Size(55, 23);
+            btnPreviousWeek.TabIndex = 4;
+            btnPreviousWeek.Text = "<<";
+            btnPreviousWeek.UseVisualStyleBackColor = true;
+            btnPreviousWeek.Click += btnPreviousWeek_Click;
+            // 
             // TasksSchedule
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnPreviousWeek);
+            Controls.Add(btnNextWeek);
+            Controls.Add(btnCurrentWeek);
             Controls.Add(dgvSchedule);
             Name = "TasksSchedule";
-            Size = new Size(755, 401);
+            Size = new Size(755, 420);
             ((System.ComponentModel.ISupportInitialize)dgvSchedule).EndInit();
             ResumeLayout(false);
         }
@@ -107,5 +143,8 @@
         #endregion
 
         private DataGridView dgvSchedule;
+        private Button btnCurrentWeek;
+        private Button btnNextWeek;
+        private Button btnPreviousWeek;
     }
 }

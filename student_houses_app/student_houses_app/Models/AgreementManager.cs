@@ -1,4 +1,4 @@
-﻿using student_houses_app.models;
+﻿using student_houses_app.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace student_houses_app.Models
 {
+    [Serializable]
     public class AgreementManager
     {
         private List<Agreement> agreements;
@@ -21,9 +22,9 @@ namespace student_houses_app.Models
             agreements = new List<Agreement>();
         }
 
-        public Agreement AddAgreement(Student studentA, Student studentB, string agreementDesc)
+        public Agreement AddAgreement(List<Student> students, string agreementDesc)
         {
-            Agreement newAgreement = new Agreement(studentA, studentB, agreementDesc);
+            Agreement newAgreement = new Agreement(students, agreementDesc);
             agreements.Add(newAgreement);
             return newAgreement;
         }

@@ -5,31 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace student_houses_app.models
+namespace student_houses_app.Models
 {
+    [Serializable]
     public class StudentManager
     {
-        private Dictionary<string, Student> studentsDict;
-
-        public Dictionary<string, Student> StudentsDict
-        {
-            get { return studentsDict; }
-        }
+        public Dictionary<string, Student> StudentsByEmail { get; set; }
 
         public StudentManager()
         {
-            studentsDict = new Dictionary<string, Student>();
+            StudentsByEmail = new Dictionary<string, Student>();
         }
 
         public Student AddStudent(string name, string email)
         {
-            if (studentsDict.ContainsKey(name))
+            if (StudentsByEmail.ContainsKey(email))
             {
-                throw new Exception("A student with the same name already exists.");
+                throw new Exception("A student with the same email already exists.");
             }
 
             Student student = new Student(name, email);
-            studentsDict.Add(name, student);
+            StudentsByEmail.Add(email, student);
             return student;
         }
     }
